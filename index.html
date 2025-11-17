@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @font-face {
+            font-family: 'DotGothic16';
+            src: url('DotGothic16-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'SpaceMono';
+            src: url('SpaceMono-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'SpaceMono';
+            src: url('SpaceMono-Bold.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'SpaceMono';
+            src: url('SpaceMono-Italic.ttf') format('truetype');
+            font-weight: normal;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'SpaceMono';
+            src: url('SpaceMono-BoldItalic.ttf') format('truetype');
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'DotGothic16', sans-serif;
+        }
+
+        body {
+            font-family: 'SpaceMono', monospace;
+            background-color: #f9f9f9;
+        }
+
+        .typing-wrapper {
+            display: inline-block;
+            position: relative;
+        }
+
+        .typing-container {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 0;
+            animation: typing 2s steps(23, end) forwards;
+        }
+
+
+        .typing-wrapper::after {
+            content: '_';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: currentColor;
+            animation: cursor-move 2s steps(23, end) forwards, blink-cursor 0.75s step-end infinite;
+        }
+
+        @keyframes cursor-move {
+            to {
+                left: 23ch;
+            }
+        }
+
+        @keyframes typing {
+            to {
+                width: 23ch;
+            }
+        }
+
+        @keyframes blink-cursor {
+
+            from,
+            to {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex items-start md:items-center justify-center px-4 pt-[200px] md:pt-0">
+    <div class="text-center max-w-4xl w-full">
+        <h1 class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-4"><span
+                class="typing-wrapper"><span class="typing-container">Welcome to a new world</span></span></h1>
+        <p class="text-base sm:text-lg md:text-xl text-gray-600 mb-6">explore below ↴</p>
+        <ul class="list-none space-y-2 text-left inline-block">
+            <li><a href="#" class="text-base sm:text-lg md:text-xl text-gray-700 hover:text-red-500">[0] Consulting</a>
+            </li>
+            <li><a href="#" class="text-base sm:text-lg md:text-xl text-gray-700 hover:text-red-500">[1] Free Guides</a>
+            </li>
+            <li><a href="#" class="text-base sm:text-lg md:text-xl text-gray-700 hover:text-red-500">[2] Creations</a>
+            </li>
+            <li><a href="#" class="text-base sm:text-lg md:text-xl text-gray-700 hover:text-red-500">[3] Socials</a>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
