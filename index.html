@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Hello World</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -54,6 +57,103 @@
         body {
             font-family: 'SpaceMono', monospace;
             background-color: #f9f9f9;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+            opacity: 0;
+            animation: fade-in-video 0.5s ease-in 3s forwards;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: -1;
+            opacity: 0;
+            animation: fade-in-video 0.5s ease-in 3s forwards;
+            pointer-events: none;
+        }
+
+        @keyframes fade-in-video {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+            --text-color-h1: #1f2937;
+            --text-color-p: #4b5563;
+            --text-color-a: #374151;
+            animation: change-colors 0.5s ease-in 3s forwards;
+        }
+
+        @keyframes change-colors {
+            to {
+                --text-color-h1: white;
+                --text-color-p: white;
+                --text-color-a: white;
+            }
+        }
+
+        .content-wrapper h1 {
+            color: var(--text-color-h1) !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        .content-wrapper h1 * {
+            color: var(--text-color-h1) !important;
+        }
+
+        .content-wrapper p {
+            color: var(--text-color-p) !important;
+        }
+
+        @keyframes link-color-change {
+            from {
+                color: #374151;
+            }
+
+            to {
+                color: #ffffff;
+            }
+        }
+
+        .content-wrapper a,
+        .content-wrapper a:link,
+        .content-wrapper a:visited {
+            color: #374151;
+            animation: link-color-change 0.5s ease 3s forwards;
+        }
+
+        .content-wrapper a:hover,
+        .content-wrapper a:hover:link,
+        .content-wrapper a:hover:visited {
+            color: #ef4444 !important;
+        }
+
+        .content-wrapper a:active {
+            color: #374151;
+            animation: link-color-change 0.5s ease 3s forwards;
+        }
+
+        .content-wrapper h1 .typing-container {
+            animation: typing 2s steps(23, end) forwards;
         }
 
         .typing-wrapper {
@@ -66,6 +166,7 @@
             overflow: hidden;
             white-space: nowrap;
             width: 0;
+            color: #1f2937 !important;
             animation: typing 2s steps(23, end) forwards;
         }
 
@@ -76,7 +177,7 @@
             left: 0;
             top: 0;
             color: currentColor;
-            animation: cursor-move 2s steps(23, end) forwards, blink-cursor 0.75s step-end infinite;
+            animation: cursor-move 2s steps(23, end) forwards, blink-cursor 0.75s step-end infinite, h1-to-white 0.5s ease-in 3s forwards;
         }
 
         @keyframes cursor-move {
@@ -106,7 +207,11 @@
 </head>
 
 <body class="min-h-screen flex items-start md:items-center justify-center px-4 pt-[200px] md:pt-0">
-    <div class="text-center max-w-4xl w-full">
+    <video class="video-background" autoplay muted loop playsinline>
+        <source src="background-video.mp4" type="video/mp4">
+        <!-- Add fallback sources if needed -->
+    </video>
+    <div class="content-wrapper text-center max-w-4xl w-full">
         <h1 class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-4"><span
                 class="typing-wrapper"><span class="typing-container">Welcome to a new world</span></span></h1>
         <p class="text-base sm:text-lg md:text-xl text-gray-600 mb-6">explore below ↴</p>
