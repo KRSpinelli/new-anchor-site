@@ -56,108 +56,153 @@
 
         body {
             font-family: 'SpaceMono', monospace;
-            background-color: #f9f9f9;
+            background-color: #0a0e17;
             position: relative;
             overflow-x: hidden;
         }
 
-        .video-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -2;
-            opacity: 0;
-            transform: scale(1.05);
-            animation: pixelated-reveal 1s ease-out 3s forwards;
+        /* Starfield Background - Tailwind @layer utilities */
+        @layer utilities {
+            .bg-starfield {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                overflow: hidden;
+                /* Deep space background - adjust color here for different space hues */
+                background: radial-gradient(ellipse at center, #0f1420 0%, #050810 100%);
+            }
+
+            /* Small stars layer - most numerous, slowest movement */
+            .bg-starfield::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 2px;
+                height: 2px;
+                background: transparent;
+                /* Adjust number of stars by changing the count in box-shadow generation */
+                /* Tweak opacity (0.3–0.8) for star brightness */
+                box-shadow:
+                    147px 234px rgba(255, 255, 255, 0.5), 431px 89px rgba(255, 255, 255, 0.4),
+                    892px 456px rgba(255, 255, 255, 0.6), 234px 678px rgba(255, 255, 255, 0.3),
+                    1456px 123px rgba(255, 255, 255, 0.5), 678px 890px rgba(255, 255, 255, 0.4),
+                    1234px 567px rgba(255, 255, 255, 0.6), 89px 345px rgba(255, 255, 255, 0.5),
+                    1678px 901px rgba(255, 255, 255, 0.4), 345px 12px rgba(255, 255, 255, 0.6),
+                    901px 1234px rgba(255, 255, 255, 0.3), 567px 456px rgba(255, 255, 255, 0.5),
+                    1890px 789px rgba(255, 255, 255, 0.4), 123px 567px rgba(255, 255, 255, 0.6),
+                    789px 234px rgba(255, 255, 255, 0.5), 456px 1012px rgba(255, 255, 255, 0.3),
+                    1345px 345px rgba(255, 255, 255, 0.6), 678px 123px rgba(255, 255, 255, 0.4),
+                    234px 890px rgba(255, 255, 255, 0.5), 1567px 567px rgba(255, 255, 255, 0.4),
+                    890px 678px rgba(255, 255, 255, 0.6), 1123px 234px rgba(255, 255, 255, 0.3),
+                    345px 789px rgba(255, 255, 255, 0.5), 1789px 456px rgba(255, 255, 255, 0.4),
+                    567px 1123px rgba(255, 255, 255, 0.6), 1234px 890px rgba(255, 255, 255, 0.5),
+                    789px 345px rgba(255, 255, 255, 0.4), 456px 678px rgba(255, 255, 255, 0.3),
+                    1890px 234px rgba(255, 255, 255, 0.6), 123px 1012px rgba(255, 255, 255, 0.5),
+                    678px 567px rgba(255, 255, 255, 0.4), 1456px 789px rgba(255, 255, 255, 0.6),
+                    234px 123px rgba(255, 255, 255, 0.5), 890px 456px rgba(255, 255, 255, 0.4),
+                    1567px 890px rgba(255, 255, 255, 0.3), 345px 234px rgba(255, 255, 255, 0.6),
+                    1123px 678px rgba(255, 255, 255, 0.5), 789px 1012px rgba(255, 255, 255, 0.4),
+                    456px 345px rgba(255, 255, 255, 0.6), 1789px 123px rgba(255, 255, 255, 0.5),
+                    567px 789px rgba(255, 255, 255, 0.4), 1345px 456px rgba(255, 255, 255, 0.3);
+                border-radius: 50%;
+                /* Adjust animation duration (30s–60s) for drift speed */
+                animation: drift-slow 40s linear infinite, twinkle-soft 12s ease-in-out infinite;
+            }
+
+            /* Medium stars layer - fewer, slightly faster, brighter */
+            .bg-starfield::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 3px;
+                height: 3px;
+                background: transparent;
+                /* Larger, brighter stars - adjust size (3px) and opacity (0.6–0.9) */
+                box-shadow:
+                    278px 456px rgba(255, 255, 255, 0.8), 1123px 234px rgba(255, 255, 255, 0.7),
+                    567px 890px rgba(255, 255, 255, 0.9), 1456px 678px rgba(255, 255, 255, 0.6),
+                    89px 123px rgba(255, 255, 255, 0.8), 1789px 345px rgba(255, 255, 255, 0.7),
+                    345px 567px rgba(255, 255, 255, 0.9), 901px 1012px rgba(255, 255, 255, 0.8),
+                    1234px 789px rgba(255, 255, 255, 0.7), 678px 234px rgba(255, 255, 255, 0.6),
+                    1567px 456px rgba(255, 255, 255, 0.9), 234px 678px rgba(255, 255, 255, 0.8),
+                    890px 345px rgba(255, 255, 255, 0.7), 1345px 1123px rgba(255, 255, 255, 0.6),
+                    456px 890px rgba(255, 255, 255, 0.9), 1678px 567px rgba(255, 255, 255, 0.8),
+                    123px 234px rgba(255, 255, 255, 0.7), 789px 678px rgba(255, 255, 255, 0.9),
+                    1012px 123px rgba(255, 255, 255, 0.6), 567px 456px rgba(255, 255, 255, 0.8);
+                border-radius: 50%;
+                /* Adjust animation duration (20s–40s) for faster parallax effect */
+                animation: drift-medium 25s linear infinite reverse, twinkle-soft 8s ease-in-out infinite;
+            }
         }
 
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: -1;
-            opacity: 0;
-            transform: scale(1.05);
-            animation: pixelated-reveal 1s ease-out 3s forwards;
-            pointer-events: none;
-        }
-
-        @keyframes pixelated-reveal {
+        /* Slow drift animation - horizontal and vertical movement */
+        @keyframes drift-slow {
             0% {
-                opacity: 0;
-                transform: scale(1.05);
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(-30px, -50px);
             }
 
             100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        /* Medium drift for parallax - slightly faster */
+        @keyframes drift-medium {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(40px, 60px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        /* Gentle twinkle - subtle opacity change */
+        @keyframes twinkle-soft {
+
+            0%,
+            100% {
                 opacity: 1;
-                transform: scale(1);
+            }
+
+            25% {
+                opacity: 0.6;
+            }
+
+            50% {
+                opacity: 0.9;
+            }
+
+            75% {
+                opacity: 0.7;
+            }
+        }
+
+        /* Accessibility: Respect prefers-reduced-motion */
+        @media (prefers-reduced-motion: reduce) {
+
+            .bg-starfield::before,
+            .bg-starfield::after {
+                animation: none;
             }
         }
 
         .content-wrapper {
             position: relative;
             z-index: 1;
-            --text-color-h1: #1f2937;
-            --text-color-p: #4b5563;
-            --text-color-a: #374151;
-            animation: change-colors 0.5s ease-in 3s forwards;
-        }
-
-        @keyframes change-colors {
-            to {
-                --text-color-h1: white;
-                --text-color-p: white;
-                --text-color-a: white;
-            }
-        }
-
-        .content-wrapper h1 {
-            color: var(--text-color-h1) !important;
-            opacity: 1 !important;
-            visibility: visible !important;
-        }
-
-        .content-wrapper h1 * {
-            color: var(--text-color-h1) !important;
-        }
-
-        .content-wrapper p {
-            color: var(--text-color-p) !important;
-        }
-
-        @keyframes link-color-change {
-            from {
-                color: #374151;
-            }
-
-            to {
-                color: #ffffff;
-            }
-        }
-
-        .content-wrapper a,
-        .content-wrapper a:link,
-        .content-wrapper a:visited {
-            color: #374151;
-            animation: link-color-change 0.5s ease 3s forwards;
-        }
-
-        .content-wrapper a:hover,
-        .content-wrapper a:hover:link,
-        .content-wrapper a:hover:visited {
-            color: #ef4444 !important;
-        }
-
-        .content-wrapper a:active {
-            color: #374151;
-            animation: link-color-change 0.5s ease 3s forwards;
         }
 
         .content-wrapper h1 .typing-container {
@@ -174,10 +219,8 @@
             overflow: hidden;
             white-space: nowrap;
             width: 0;
-            color: #1f2937 !important;
             animation: typing 2s steps(23, end) forwards;
         }
-
 
         .typing-wrapper::after {
             content: '_';
@@ -185,7 +228,7 @@
             left: 0;
             top: 0;
             color: currentColor;
-            animation: cursor-move 2s steps(23, end) forwards, blink-cursor 0.75s step-end infinite, h1-to-white 0.5s ease-in 3s forwards;
+            animation: cursor-move 2s steps(23, end) forwards, blink-cursor 0.75s step-end infinite;
         }
 
         @keyframes cursor-move {
@@ -215,24 +258,29 @@
 </head>
 
 <body class="min-h-screen flex items-start md:items-center justify-center px-4 pt-[200px] md:pt-0">
-    <video class="video-background" autoplay muted loop playsinline>
-        <source src="background-video.mp4" type="video/mp4">
-        <!-- Add fallback sources if needed -->
-    </video>
+    <!-- Starfield Background -->
+    <div class="bg-starfield"></div>
+
     <div class="content-wrapper text-center max-w-4xl w-full">
-        <h1 class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-4"><span
-                class="typing-wrapper"><span class="typing-container">Welcome to a new world</span></span></h1>
-        <p class="text-base sm:text-lg md:text-xl text-gray-600 mb-6">explore below ↴</p>
+        <h1 class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+            <span class="typing-wrapper">
+                <span class="typing-container">Welcome to a new world</span>
+            </span>
+        </h1>
+        <p class="text-base sm:text-lg md:text-xl text-gray-300 mb-6">explore below ↴</p>
         <ul class="list-none space-y-2 text-left inline-block">
-            <li><a href="#" class="text-base sm:text-lg md:text-xl text-gray-700 hover:text-red-500">[0] Consulting</a>
-            </li>
-            <li><a href="/guides/" class="text-base sm:text-lg md:text-xl text-gray-700 hover:text-red-500">[1] Free
-                    Guides</a>
-            </li>
-            <li><a href="#" class="text-base sm:text-lg md:text-xl text-gray-700 hover:text-red-500">[2] Creations</a>
-            </li>
-            <li><a href="#" class="text-base sm:text-lg md:text-xl text-gray-700 hover:text-red-500">[3] Socials</a>
-            </li>
+            <li><a href="#"
+                    class="text-base sm:text-lg md:text-xl text-gray-200 hover:text-red-400 transition-colors">[0]
+                    Consulting</a></li>
+            <li><a href="/guides/"
+                    class="text-base sm:text-lg md:text-xl text-gray-200 hover:text-red-400 transition-colors">[1] Free
+                    Guides</a></li>
+            <li><a href="#"
+                    class="text-base sm:text-lg md:text-xl text-gray-200 hover:text-red-400 transition-colors">[2]
+                    Creations</a></li>
+            <li><a href="#"
+                    class="text-base sm:text-lg md:text-xl text-gray-200 hover:text-red-400 transition-colors">[3]
+                    Socials</a></li>
         </ul>
     </div>
 </body>

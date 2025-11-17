@@ -34,13 +34,63 @@
             font-family: 'SpaceMono', monospace;
             background-color: #f9f9f9;
         }
+
+        .typing-wrapper {
+            display: inline-block;
+            position: relative;
+        }
+
+        .typing-container {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 0;
+            animation: typing 0.5s steps(6, end) forwards;
+        }
+
+        .typing-wrapper::after {
+            content: '_';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: currentColor;
+            animation: cursor-move 0.5s steps(6, end) forwards, blink-cursor 0.75s step-end infinite;
+        }
+
+        @keyframes cursor-move {
+            to {
+                left: 6ch;
+            }
+        }
+
+        @keyframes typing {
+            to {
+                width: 6ch;
+            }
+        }
+
+        @keyframes blink-cursor {
+
+            from,
+            to {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 
 <body class="min-h-screen px-4 py-12">
     <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
-            <h1 class="text-4xl md:text-6xl font-bold text-gray-800 mb-4">Guides</h1>
+            <h1 class="text-4xl md:text-6xl font-bold text-gray-800 mb-4">
+                <span class="typing-wrapper">
+                    <span class="typing-container">Guides</span>
+                </span>
+            </h1>
             <a href="/" class="text-gray-700 hover:text-red-500">← Back to Home</a>
         </div>
 
