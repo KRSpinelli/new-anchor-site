@@ -67,7 +67,6 @@
             overflow-x: hidden;
         }
 
-        /* Starfield Background - Tailwind @layer utilities */
         @layer utilities {
             .bg-starfield {
                 position: fixed;
@@ -77,11 +76,9 @@
                 height: 100%;
                 z-index: -1;
                 overflow: hidden;
-                /* Deep space background - adjust color here for different space hues */
                 background: radial-gradient(ellipse at center, #0f1420 0%, #050810 100%);
             }
 
-            /* Small stars layer - most numerous, slowest movement */
             .bg-starfield::before {
                 content: '';
                 position: absolute;
@@ -90,8 +87,6 @@
                 width: 2px;
                 height: 2px;
                 background: transparent;
-                /* Adjust number of stars by changing the count in box-shadow generation */
-                /* Tweak opacity (0.3–0.8) for star brightness */
                 box-shadow:
                     147px 234px rgba(255, 255, 255, 0.5), 431px 89px rgba(255, 255, 255, 0.4),
                     892px 456px rgba(255, 255, 255, 0.6), 234px 678px rgba(255, 255, 255, 0.3),
@@ -114,7 +109,6 @@
                     1123px 678px rgba(255, 255, 255, 0.5), 789px 1012px rgba(255, 255, 255, 0.4),
                     456px 345px rgba(255, 255, 255, 0.6), 1789px 123px rgba(255, 255, 255, 0.5),
                     567px 789px rgba(255, 255, 255, 0.4), 1345px 456px rgba(255, 255, 255, 0.3),
-                    /* Additional 40 stars */
                     512px 178px rgba(255, 255, 255, 0.5), 1621px 934px rgba(255, 255, 255, 0.4),
                     923px 612px rgba(255, 255, 255, 0.6), 178px 445px rgba(255, 255, 255, 0.3),
                     1289px 801px rgba(255, 255, 255, 0.5), 756px 267px rgba(255, 255, 255, 0.4),
@@ -137,11 +131,9 @@
                     156px 512px rgba(255, 255, 255, 0.6), 1712px 978px rgba(255, 255, 255, 0.5),
                     501px 345px rgba(255, 255, 255, 0.4), 1423px 723px rgba(255, 255, 255, 0.3);
                 border-radius: 50%;
-                /* Adjust animation duration (30s–60s) for drift speed */
                 animation: drift-slow 40s linear infinite, twinkle-soft 12s ease-in-out infinite;
             }
 
-            /* Medium stars layer - fewer, slightly faster, brighter */
             .bg-starfield::after {
                 content: '';
                 position: absolute;
@@ -150,7 +142,6 @@
                 width: 3px;
                 height: 3px;
                 background: transparent;
-                /* Larger, brighter stars - adjust size (3px) and opacity (0.6–0.9) */
                 box-shadow:
                     278px 456px rgba(255, 255, 255, 0.8), 1123px 234px rgba(255, 255, 255, 0.7),
                     567px 890px rgba(255, 255, 255, 0.9), 1456px 678px rgba(255, 255, 255, 0.6),
@@ -162,7 +153,6 @@
                     456px 890px rgba(255, 255, 255, 0.9), 1678px 567px rgba(255, 255, 255, 0.8),
                     123px 234px rgba(255, 255, 255, 0.7), 789px 678px rgba(255, 255, 255, 0.9),
                     1012px 123px rgba(255, 255, 255, 0.6), 567px 456px rgba(255, 255, 255, 0.8),
-                    /* Additional 20 brighter stars */
                     412px 723px rgba(255, 255, 255, 0.8), 1534px 912px rgba(255, 255, 255, 0.7),
                     834px 267px rgba(255, 255, 255, 0.9), 1712px 534px rgba(255, 255, 255, 0.6),
                     223px 989px rgba(255, 255, 255, 0.8), 1445px 178px rgba(255, 255, 255, 0.7),
@@ -174,12 +164,10 @@
                     689px 801px rgba(255, 255, 255, 0.7), 1934px 512px rgba(255, 255, 255, 0.9),
                     178px 645px rgba(255, 255, 255, 0.6), 1378px 156px rgba(255, 255, 255, 0.8);
                 border-radius: 50%;
-                /* Adjust animation duration (20s–40s) for faster parallax effect */
                 animation: drift-medium 25s linear infinite reverse, twinkle-soft 8s ease-in-out infinite;
             }
         }
 
-        /* Slow drift animation - horizontal and vertical movement */
         @keyframes drift-slow {
             0% {
                 transform: translate(0, 0);
@@ -194,7 +182,6 @@
             }
         }
 
-        /* Medium drift for parallax - slightly faster */
         @keyframes drift-medium {
             0% {
                 transform: translate(0, 0);
@@ -209,7 +196,6 @@
             }
         }
 
-        /* Gentle twinkle - subtle opacity change */
         @keyframes twinkle-soft {
 
             0%,
@@ -230,7 +216,6 @@
             }
         }
 
-        /* Accessibility: Respect prefers-reduced-motion */
         @media (prefers-reduced-motion: reduce) {
 
             .bg-starfield::before,
@@ -297,7 +282,6 @@
 </head>
 
 <body class="min-h-screen flex items-start md:items-center justify-center px-4 pt-[200px] md:pt-0">
-    <!-- Starfield Background -->
     <div class="bg-starfield"></div>
 
     <div class="content-wrapper text-center max-w-4xl w-full">
@@ -317,9 +301,6 @@
             <li><a href="/projects/"
                     class="text-base sm:text-lg md:text-xl text-gray-200 hover:text-red-400 transition-colors">[2]
                     Creations</a></li>
-            <!-- <li><a href="https://www.instagram.com/anchor_software/" target="_blank" rel="noopener noreferrer"
-                    class="text-base sm:text-lg md:text-xl text-gray-200 hover:text-red-400 transition-colors">[3]
-                    Instagram</a></li> -->
         </ul>
         <img src="anchor-logo.svg" alt="Anchor Logo" class="w-24 h-24 mx-auto mt-8 opacity-90 brightness-0 invert">
         <p class="text-gray-400 text-sm mt-3">Anchor Software Consulting LLC</p>
