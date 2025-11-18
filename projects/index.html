@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @font-face {
+            font-family: 'DotGothic16';
+            src: url('../fonts/DotGothic16-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'SpaceMono';
+            src: url('../fonts/SpaceMono-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'DotGothic16', sans-serif;
+        }
+
+        body {
+            font-family: 'SpaceMono', monospace;
+            background-color: #0a0e17;
+        }
+
+        .bg-starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            /* Deep space background - adjust color here for different space hues */
+            background: radial-gradient(ellipse at center, #0f1420 0%, #050810 100%);
+        }
+
+        /* Small stars layer - most numerous, slowest movement */
+        .bg-starfield::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 2px;
+            background: transparent;
+            /* Adjust number of stars by changing the count in box-shadow generation */
+            /* Tweak opacity (0.3–0.8) for star brightness */
+            box-shadow:
+                147px 234px rgba(255, 255, 255, 0.5), 431px 89px rgba(255, 255, 255, 0.4),
+                892px 456px rgba(255, 255, 255, 0.6), 234px 678px rgba(255, 255, 255, 0.3),
+                1456px 123px rgba(255, 255, 255, 0.5), 678px 890px rgba(255, 255, 255, 0.4),
+                1234px 567px rgba(255, 255, 255, 0.6), 89px 345px rgba(255, 255, 255, 0.5),
+                1678px 901px rgba(255, 255, 255, 0.4), 345px 12px rgba(255, 255, 255, 0.6),
+                901px 1234px rgba(255, 255, 255, 0.3), 567px 456px rgba(255, 255, 255, 0.5),
+                1890px 789px rgba(255, 255, 255, 0.4), 123px 567px rgba(255, 255, 255, 0.6),
+                789px 234px rgba(255, 255, 255, 0.5), 456px 1012px rgba(255, 255, 255, 0.3),
+                1345px 345px rgba(255, 255, 255, 0.6), 678px 123px rgba(255, 255, 255, 0.4),
+                234px 890px rgba(255, 255, 255, 0.5), 1567px 567px rgba(255, 255, 255, 0.4),
+                890px 678px rgba(255, 255, 255, 0.6), 1123px 234px rgba(255, 255, 255, 0.3),
+                345px 789px rgba(255, 255, 255, 0.5), 1789px 456px rgba(255, 255, 255, 0.4),
+                567px 1123px rgba(255, 255, 255, 0.6), 1234px 890px rgba(255, 255, 255, 0.5),
+                789px 345px rgba(255, 255, 255, 0.4), 456px 678px rgba(255, 255, 255, 0.3),
+                1890px 234px rgba(255, 255, 255, 0.6), 123px 1012px rgba(255, 255, 255, 0.5),
+                678px 567px rgba(255, 255, 255, 0.4), 1456px 789px rgba(255, 255, 255, 0.6),
+                234px 123px rgba(255, 255, 255, 0.5), 890px 456px rgba(255, 255, 255, 0.4),
+                1567px 890px rgba(255, 255, 255, 0.3), 345px 234px rgba(255, 255, 255, 0.6),
+                1123px 678px rgba(255, 255, 255, 0.5), 789px 1012px rgba(255, 255, 255, 0.4),
+                456px 345px rgba(255, 255, 255, 0.6), 1789px 123px rgba(255, 255, 255, 0.5),
+                567px 789px rgba(255, 255, 255, 0.4), 1345px 456px rgba(255, 255, 255, 0.3),
+                /* Additional 40 stars */
+                512px 178px rgba(255, 255, 255, 0.5), 1621px 934px rgba(255, 255, 255, 0.4),
+                923px 612px rgba(255, 255, 255, 0.6), 178px 445px rgba(255, 255, 255, 0.3),
+                1289px 801px rgba(255, 255, 255, 0.5), 756px 267px rgba(255, 255, 255, 0.4),
+                1834px 523px rgba(255, 255, 255, 0.6), 412px 989px rgba(255, 255, 255, 0.5),
+                1067px 156px rgba(255, 255, 255, 0.4), 289px 723px rgba(255, 255, 255, 0.6),
+                1445px 478px rgba(255, 255, 255, 0.3), 634px 1145px rgba(255, 255, 255, 0.5),
+                1712px 334px rgba(255, 255, 255, 0.4), 201px 856px rgba(255, 255, 255, 0.6),
+                867px 512px rgba(255, 255, 255, 0.5), 1523px 667px rgba(255, 255, 255, 0.3),
+                423px 1078px rgba(255, 255, 255, 0.6), 1156px 912px rgba(255, 255, 255, 0.4),
+                712px 234px rgba(255, 255, 255, 0.5), 1945px 445px rgba(255, 255, 255, 0.4),
+                334px 623px rgba(255, 255, 255, 0.6), 1078px 789px rgba(255, 255, 255, 0.3),
+                556px 1167px rgba(255, 255, 255, 0.5), 1601px 278px rgba(255, 255, 255, 0.4),
+                823px 934px rgba(255, 255, 255, 0.6), 1334px 512px rgba(255, 255, 255, 0.5),
+                445px 67px rgba(255, 255, 255, 0.4), 1789px 845px rgba(255, 255, 255, 0.3),
+                978px 423px rgba(255, 255, 255, 0.6), 267px 1001px rgba(255, 255, 255, 0.5),
+                1467px 645px rgba(255, 255, 255, 0.4), 612px 378px rgba(255, 255, 255, 0.6),
+                1890px 123px rgba(255, 255, 255, 0.5), 378px 756px rgba(255, 255, 255, 0.4),
+                1245px 1023px rgba(255, 255, 255, 0.3), 689px 534px rgba(255, 255, 255, 0.6),
+                1556px 189px rgba(255, 255, 255, 0.5), 934px 867px rgba(255, 255, 255, 0.4),
+                156px 512px rgba(255, 255, 255, 0.6), 1712px 978px rgba(255, 255, 255, 0.5),
+                501px 345px rgba(255, 255, 255, 0.4), 1423px 723px rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            /* Adjust animation duration (30s–60s) for drift speed */
+            animation: drift-slow 40s linear infinite, twinkle-soft 12s ease-in-out infinite;
+        }
+
+        /* Medium stars layer - fewer, slightly faster, brighter */
+        .bg-starfield::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 3px;
+            background: transparent;
+            /* Larger, brighter stars - adjust size (3px) and opacity (0.6–0.9) */
+            box-shadow:
+                278px 456px rgba(255, 255, 255, 0.8), 1123px 234px rgba(255, 255, 255, 0.7),
+                567px 890px rgba(255, 255, 255, 0.9), 1456px 678px rgba(255, 255, 255, 0.6),
+                89px 123px rgba(255, 255, 255, 0.8), 1789px 345px rgba(255, 255, 255, 0.7),
+                345px 567px rgba(255, 255, 255, 0.9), 901px 1012px rgba(255, 255, 255, 0.8),
+                1234px 789px rgba(255, 255, 255, 0.7), 678px 234px rgba(255, 255, 255, 0.6),
+                1567px 456px rgba(255, 255, 255, 0.9), 234px 678px rgba(255, 255, 255, 0.8),
+                890px 345px rgba(255, 255, 255, 0.7), 1345px 1123px rgba(255, 255, 255, 0.6),
+                456px 890px rgba(255, 255, 255, 0.9), 1678px 567px rgba(255, 255, 255, 0.8),
+                123px 234px rgba(255, 255, 255, 0.7), 789px 678px rgba(255, 255, 255, 0.9),
+                1012px 123px rgba(255, 255, 255, 0.6), 567px 456px rgba(255, 255, 255, 0.8),
+                /* Additional 20 brighter stars */
+                412px 723px rgba(255, 255, 255, 0.8), 1534px 912px rgba(255, 255, 255, 0.7),
+                834px 267px rgba(255, 255, 255, 0.9), 1712px 534px rgba(255, 255, 255, 0.6),
+                223px 989px rgba(255, 255, 255, 0.8), 1445px 178px rgba(255, 255, 255, 0.7),
+                612px 1134px rgba(255, 255, 255, 0.9), 1089px 445px rgba(255, 255, 255, 0.8),
+                756px 612px rgba(255, 255, 255, 0.7), 1823px 867px rgba(255, 255, 255, 0.6),
+                334px 378px rgba(255, 255, 255, 0.9), 1267px 1056px rgba(255, 255, 255, 0.8),
+                923px 89px rgba(255, 255, 255, 0.7), 1601px 723px rgba(255, 255, 255, 0.6),
+                445px 1189px rgba(255, 255, 255, 0.9), 1156px 334px rgba(255, 255, 255, 0.8),
+                689px 801px rgba(255, 255, 255, 0.7), 1934px 512px rgba(255, 255, 255, 0.9),
+                178px 645px rgba(255, 255, 255, 0.6), 1378px 156px rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            /* Adjust animation duration (20s–40s) for faster parallax effect */
+            animation: drift-medium 25s linear infinite reverse, twinkle-soft 8s ease-in-out infinite;
+        }
+
+        /* Slow drift animation - horizontal and vertical movement */
+        @keyframes drift-slow {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(-30px, -50px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        /* Medium drift for parallax - slightly faster */
+        @keyframes drift-medium {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(40px, 60px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        /* Gentle twinkle - subtle opacity change */
+        @keyframes twinkle-soft {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            25% {
+                opacity: 0.6;
+            }
+
+            50% {
+                opacity: 0.9;
+            }
+
+            75% {
+                opacity: 0.7;
+            }
+        }
+
+        /* Accessibility: Respect prefers-reduced-motion */
+        @media (prefers-reduced-motion: reduce) {
+
+            .bg-starfield::before,
+            .bg-starfield::after {
+                animation: none;
+            }
+        }
+
+        .typing-wrapper {
+            display: inline-block;
+            position: relative;
+        }
+
+        .typing-container {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 0;
+            animation: typing 1s steps(9, end) forwards;
+        }
+
+        .typing-wrapper::after {
+            content: '_';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: currentColor;
+            animation: cursor-move 1s steps(9, end) forwards, blink-cursor 0.75s step-end infinite;
+        }
+
+        @keyframes cursor-move {
+            to {
+                left: 9ch;
+            }
+        }
+
+        @keyframes typing {
+            to {
+                width: 9ch;
+            }
+        }
+
+        @keyframes blink-cursor {
+
+            from,
+            to {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="min-h-screen px-4 py-12">
+    <div class="bg-starfield"></div>
+
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">
+                <span class="typing-wrapper">
+                    <span class="typing-container">Creations</span>
+                </span>
+            </h1>
+            <a href="/" class="text-gray-200 hover:text-red-400 transition-colors">← Back to Home</a>
+        </div>
+
+        <p class="text-center text-gray-300 text-2xl mt-12">Coming soon</p>
+
+        <!-- Projects Cards
+        <div class="space-y-6 max-w-4xl mx-auto">
+            <! Card 1 
+            <div
+                class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row">
+                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop"
+                    alt="Project 1" class="w-full md:w-64 h-48 md:h-auto object-cover">
+                <div class="p-6 flex-1">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">AI-Powered Analytics Dashboard</h3>
+                    <p class="text-gray-600">A comprehensive analytics platform that leverages machine learning to
+                        provide real-time insights and predictive analytics for business intelligence.</p>
+                </div>
+            </div>
+
+            <! Card 2 
+            <div
+                class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop"
+                    alt="Project 2" class="w-full md:w-64 h-48 md:h-auto object-cover">
+                <div class="p-6 flex-1">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">E-Commerce Platform Redesign</h3>
+                    <p class="text-gray-600">Complete overhaul of a major e-commerce platform, improving user experience
+                        and increasing conversion rates by 45% through modern design principles.</p>
+                </div>
+            </div>
+
+            <! Card 3 
+            <div
+                class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop"
+                    alt="Project 3" class="w-full md:w-64 h-48 md:h-auto object-cover">
+                <div class="p-6 flex-1">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">Mobile Fitness Tracker App</h3>
+                    <p class="text-gray-600">Cross-platform mobile application for fitness tracking with social
+                        features, real-time workout analytics, and personalized training recommendations.</p>
+                </div>
+            </div>
+
+            <! Card 4 
+            <div
+                class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=300&fit=crop"
+                    alt="Project 4" class="w-full md:w-64 h-48 md:h-auto object-cover">
+                <div class="p-6 flex-1">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">Smart Home Automation System</h3>
+                    <p class="text-gray-600">IoT-based home automation solution integrating multiple smart devices with
+                        voice control, scheduling, and energy optimization features.</p>
+                </div>
+            </div>
+
+            <! Card 5 
+            <div
+                class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row">
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit=crop"
+                    alt="Project 5" class="w-full md:w-64 h-48 md:h-auto object-cover">
+                <div class="p-6 flex-1">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">Blockchain Supply Chain Tracker</h3>
+                    <p class="text-gray-600">Decentralized supply chain management system using blockchain technology to
+                        ensure transparency and traceability across global logistics networks.</p>
+                </div>
+            </div>
+
+            <! Card 6 
+            <div
+                class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row">
+                <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=400&h=300&fit=crop"
+                    alt="Project 6" class="w-full md:w-64 h-48 md:h-auto object-cover">
+                <div class="p-6 flex-1">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">AI Content Generation Tool</h3>
+                    <p class="text-gray-600">Advanced natural language processing tool that helps content creators
+                        generate high-quality written content with customizable tone and style.</p>
+                </div>
+            </div>
+        </div>
+        -->
+    </div>
+</body>
+
+</html>
