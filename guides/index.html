@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guides</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            devMode: false
+        }
+    </script>
     <style>
         @font-face {
             font-family: 'DotGothic16';
@@ -412,7 +417,7 @@
             }
 
             const formData = new FormData();
-            formData.append("access_key", "b3db34b0-f458-4e2d-b3da-18be9221e91f");
+            formData.append("access_key", "10b5720a-d98c-42d0-997b-d3799018620b");
             formData.append("name", email);
             formData.append("email", email);
             formData.append("message", "Downloading file: " + currentFileName);
