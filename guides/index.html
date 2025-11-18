@@ -80,10 +80,181 @@
                 opacity: 0;
             }
         }
+
+        .bg-starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            /* Deep space background - adjust color here for different space hues */
+            background: radial-gradient(ellipse at center, #0f1420 0%, #050810 100%);
+        }
+
+        /* Small stars layer - most numerous, slowest movement */
+        .bg-starfield::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 2px;
+            background: transparent;
+            /* Adjust number of stars by changing the count in box-shadow generation */
+            /* Tweak opacity (0.3–0.8) for star brightness */
+            box-shadow:
+                147px 234px rgba(255, 255, 255, 0.5), 431px 89px rgba(255, 255, 255, 0.4),
+                892px 456px rgba(255, 255, 255, 0.6), 234px 678px rgba(255, 255, 255, 0.3),
+                1456px 123px rgba(255, 255, 255, 0.5), 678px 890px rgba(255, 255, 255, 0.4),
+                1234px 567px rgba(255, 255, 255, 0.6), 89px 345px rgba(255, 255, 255, 0.5),
+                1678px 901px rgba(255, 255, 255, 0.4), 345px 12px rgba(255, 255, 255, 0.6),
+                901px 1234px rgba(255, 255, 255, 0.3), 567px 456px rgba(255, 255, 255, 0.5),
+                1890px 789px rgba(255, 255, 255, 0.4), 123px 567px rgba(255, 255, 255, 0.6),
+                789px 234px rgba(255, 255, 255, 0.5), 456px 1012px rgba(255, 255, 255, 0.3),
+                1345px 345px rgba(255, 255, 255, 0.6), 678px 123px rgba(255, 255, 255, 0.4),
+                234px 890px rgba(255, 255, 255, 0.5), 1567px 567px rgba(255, 255, 255, 0.4),
+                890px 678px rgba(255, 255, 255, 0.6), 1123px 234px rgba(255, 255, 255, 0.3),
+                345px 789px rgba(255, 255, 255, 0.5), 1789px 456px rgba(255, 255, 255, 0.4),
+                567px 1123px rgba(255, 255, 255, 0.6), 1234px 890px rgba(255, 255, 255, 0.5),
+                789px 345px rgba(255, 255, 255, 0.4), 456px 678px rgba(255, 255, 255, 0.3),
+                1890px 234px rgba(255, 255, 255, 0.6), 123px 1012px rgba(255, 255, 255, 0.5),
+                678px 567px rgba(255, 255, 255, 0.4), 1456px 789px rgba(255, 255, 255, 0.6),
+                234px 123px rgba(255, 255, 255, 0.5), 890px 456px rgba(255, 255, 255, 0.4),
+                1567px 890px rgba(255, 255, 255, 0.3), 345px 234px rgba(255, 255, 255, 0.6),
+                1123px 678px rgba(255, 255, 255, 0.5), 789px 1012px rgba(255, 255, 255, 0.4),
+                456px 345px rgba(255, 255, 255, 0.6), 1789px 123px rgba(255, 255, 255, 0.5),
+                567px 789px rgba(255, 255, 255, 0.4), 1345px 456px rgba(255, 255, 255, 0.3),
+                /* Additional 40 stars */
+                512px 178px rgba(255, 255, 255, 0.5), 1621px 934px rgba(255, 255, 255, 0.4),
+                923px 612px rgba(255, 255, 255, 0.6), 178px 445px rgba(255, 255, 255, 0.3),
+                1289px 801px rgba(255, 255, 255, 0.5), 756px 267px rgba(255, 255, 255, 0.4),
+                1834px 523px rgba(255, 255, 255, 0.6), 412px 989px rgba(255, 255, 255, 0.5),
+                1067px 156px rgba(255, 255, 255, 0.4), 289px 723px rgba(255, 255, 255, 0.6),
+                1445px 478px rgba(255, 255, 255, 0.3), 634px 1145px rgba(255, 255, 255, 0.5),
+                1712px 334px rgba(255, 255, 255, 0.4), 201px 856px rgba(255, 255, 255, 0.6),
+                867px 512px rgba(255, 255, 255, 0.5), 1523px 667px rgba(255, 255, 255, 0.3),
+                423px 1078px rgba(255, 255, 255, 0.6), 1156px 912px rgba(255, 255, 255, 0.4),
+                712px 234px rgba(255, 255, 255, 0.5), 1945px 445px rgba(255, 255, 255, 0.4),
+                334px 623px rgba(255, 255, 255, 0.6), 1078px 789px rgba(255, 255, 255, 0.3),
+                556px 1167px rgba(255, 255, 255, 0.5), 1601px 278px rgba(255, 255, 255, 0.4),
+                823px 934px rgba(255, 255, 255, 0.6), 1334px 512px rgba(255, 255, 255, 0.5),
+                445px 67px rgba(255, 255, 255, 0.4), 1789px 845px rgba(255, 255, 255, 0.3),
+                978px 423px rgba(255, 255, 255, 0.6), 267px 1001px rgba(255, 255, 255, 0.5),
+                1467px 645px rgba(255, 255, 255, 0.4), 612px 378px rgba(255, 255, 255, 0.6),
+                1890px 123px rgba(255, 255, 255, 0.5), 378px 756px rgba(255, 255, 255, 0.4),
+                1245px 1023px rgba(255, 255, 255, 0.3), 689px 534px rgba(255, 255, 255, 0.6),
+                1556px 189px rgba(255, 255, 255, 0.5), 934px 867px rgba(255, 255, 255, 0.4),
+                156px 512px rgba(255, 255, 255, 0.6), 1712px 978px rgba(255, 255, 255, 0.5),
+                501px 345px rgba(255, 255, 255, 0.4), 1423px 723px rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            /* Adjust animation duration (30s–60s) for drift speed */
+            animation: drift-slow 40s linear infinite, twinkle-soft 12s ease-in-out infinite;
+        }
+
+        /* Medium stars layer - fewer, slightly faster, brighter */
+        .bg-starfield::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 3px;
+            background: transparent;
+            /* Larger, brighter stars - adjust size (3px) and opacity (0.6–0.9) */
+            box-shadow:
+                278px 456px rgba(255, 255, 255, 0.8), 1123px 234px rgba(255, 255, 255, 0.7),
+                567px 890px rgba(255, 255, 255, 0.9), 1456px 678px rgba(255, 255, 255, 0.6),
+                89px 123px rgba(255, 255, 255, 0.8), 1789px 345px rgba(255, 255, 255, 0.7),
+                345px 567px rgba(255, 255, 255, 0.9), 901px 1012px rgba(255, 255, 255, 0.8),
+                1234px 789px rgba(255, 255, 255, 0.7), 678px 234px rgba(255, 255, 255, 0.6),
+                1567px 456px rgba(255, 255, 255, 0.9), 234px 678px rgba(255, 255, 255, 0.8),
+                890px 345px rgba(255, 255, 255, 0.7), 1345px 1123px rgba(255, 255, 255, 0.6),
+                456px 890px rgba(255, 255, 255, 0.9), 1678px 567px rgba(255, 255, 255, 0.8),
+                123px 234px rgba(255, 255, 255, 0.7), 789px 678px rgba(255, 255, 255, 0.9),
+                1012px 123px rgba(255, 255, 255, 0.6), 567px 456px rgba(255, 255, 255, 0.8),
+                /* Additional 20 brighter stars */
+                412px 723px rgba(255, 255, 255, 0.8), 1534px 912px rgba(255, 255, 255, 0.7),
+                834px 267px rgba(255, 255, 255, 0.9), 1712px 534px rgba(255, 255, 255, 0.6),
+                223px 989px rgba(255, 255, 255, 0.8), 1445px 178px rgba(255, 255, 255, 0.7),
+                612px 1134px rgba(255, 255, 255, 0.9), 1089px 445px rgba(255, 255, 255, 0.8),
+                756px 612px rgba(255, 255, 255, 0.7), 1823px 867px rgba(255, 255, 255, 0.6),
+                334px 378px rgba(255, 255, 255, 0.9), 1267px 1056px rgba(255, 255, 255, 0.8),
+                923px 89px rgba(255, 255, 255, 0.7), 1601px 723px rgba(255, 255, 255, 0.6),
+                445px 1189px rgba(255, 255, 255, 0.9), 1156px 334px rgba(255, 255, 255, 0.8),
+                689px 801px rgba(255, 255, 255, 0.7), 1934px 512px rgba(255, 255, 255, 0.9),
+                178px 645px rgba(255, 255, 255, 0.6), 1378px 156px rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            /* Adjust animation duration (20s–40s) for faster parallax effect */
+            animation: drift-medium 25s linear infinite reverse, twinkle-soft 8s ease-in-out infinite;
+        }
+
+        /* Slow drift animation - horizontal and vertical movement */
+        @keyframes drift-slow {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(-30px, -50px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        /* Medium drift for parallax - slightly faster */
+        @keyframes drift-medium {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(40px, 60px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        /* Gentle twinkle - subtle opacity change */
+        @keyframes twinkle-soft {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            25% {
+                opacity: 0.6;
+            }
+
+            50% {
+                opacity: 0.9;
+            }
+
+            75% {
+                opacity: 0.7;
+            }
+        }
+
+        /* Accessibility: Respect prefers-reduced-motion */
+        @media (prefers-reduced-motion: reduce) {
+
+            .bg-starfield::before,
+            .bg-starfield::after {
+                animation: none;
+            }
+        }
     </style>
 </head>
 
 <body class="min-h-screen px-4 py-12">
+    <div class="bg-starfield"></div>
+
     <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
             <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">
@@ -101,13 +272,23 @@
                 <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=400&h=300&fit=crop"
                     alt="Guide 1" class="w-full h-48 object-cover">
                 <div class="p-6">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Getting Started</h3>
-                    <p class="text-gray-600">Learn the basics and get up and running quickly with our comprehensive
-                        starter guide.</p>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">10 Real-World Uses of AI and Tech in Business</h3>
+                    <p class="text-gray-600 mb-4">I put this together as part of some consulting work I was doing in the
+                        specialty
+                        insurance space. Regardless of your interest in insurance, this is a
+                        <i>great, brief overview</i> of
+                        some of the
+                        <b style="color: #000000;">real ways companies are using AI today.</b>
+                    </p>
+                    <button
+                        onclick="openDownloadModal('The Top 10 Most Exciting Innovations in Specialty Insurance.pdf')"
+                        class="w-full bg-[#C80003] hover:bg-[#A00002] text-white font-semibold py-2 px-4 rounded transition-colors">
+                        Download Guide
+                    </button>
                 </div>
             </div>
 
-            <!-- Card 2 -->
+            <!-- Card 2
             <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop" alt="Guide 2"
                     class="w-full h-48 object-cover">
@@ -118,7 +299,7 @@
                 </div>
             </div>
 
-            <!-- Card 3 -->
+            <!-- Card 3 
             <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit=crop"
                     alt="Guide 3" class="w-full h-48 object-cover">
@@ -129,7 +310,7 @@
                 </div>
             </div>
 
-            <!-- Card 4 -->
+            <!-- Card 4 
             <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=300&fit=crop"
                     alt="Guide 4" class="w-full h-48 object-cover">
@@ -140,7 +321,7 @@
                 </div>
             </div>
 
-            <!-- Card 5 -->
+            <!-- Card 5 
             <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop"
                     alt="Guide 5" class="w-full h-48 object-cover">
@@ -150,7 +331,7 @@
                 </div>
             </div>
 
-            <!-- Card 6 -->
+            <!-- Card 6
             <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"
                     alt="Guide 6" class="w-full h-48 object-cover">
@@ -158,9 +339,113 @@
                     <h3 class="text-xl font-bold text-gray-800 mb-2">Case Studies</h3>
                     <p class="text-gray-600">Real-world examples and success stories from our community members.</p>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
+
+    <!-- Email Download Modal -->
+    <div id="downloadModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50"
+        onclick="closeModalOnBackdrop(event)">
+        <div class="bg-white rounded-lg shadow-2xl p-8 max-w-md w-full mx-4" onclick="event.stopPropagation()">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">Download Guide</h2>
+                <button onclick="closeDownloadModal()" class="text-gray-500 hover:text-gray-700 text-2xl leading-none">
+                    &times;
+                </button>
+            </div>
+
+            <p class="text-gray-600 mb-6">Enter your email to download the guide:</p>
+
+            <form id="downloadForm" onsubmit="handleDownload(event)">
+                <input type="email" id="emailInput" required placeholder="your@email.com"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[#000000] focus:border-transparent" />
+
+                <div class="flex gap-3">
+                    <button type="button" onclick="closeDownloadModal()"
+                        class="flex-1 px-4 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-semibold">
+                        Cancel
+                    </button>
+                    <button type="submit"
+                        class="flex-1 px-4 py-3 bg-[#C80003] text-white rounded-lg hover:bg-[#A00002] transition-colors font-semibold">
+                        Download
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let currentFileName = '';
+
+        function openDownloadModal(fileName) {
+            currentFileName = fileName;
+            const modal = document.getElementById('downloadModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.getElementById('emailInput').value = '';
+            document.getElementById('emailInput').focus();
+        }
+
+        function closeDownloadModal() {
+            const modal = document.getElementById('downloadModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            currentFileName = '';
+        }
+
+        function closeModalOnBackdrop(event) {
+            if (event.target.id === 'downloadModal') {
+                closeDownloadModal();
+            }
+        }
+
+        function handleDownload(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('emailInput').value;
+
+            // Basic email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append("access_key", "b3db34b0-f458-4e2d-b3da-18be9221e91f");
+            formData.append("name", email);
+            formData.append("email", email);
+            formData.append("message", "Downloading file: " + currentFileName);
+
+            fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Downloading file:', currentFileName);
+                    const link = document.createElement('a');
+                    link.href = currentFileName;
+                    link.download = currentFileName;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                })
+                .catch(error => {
+                    alert("Something went wrong. Please try again.");
+                })
+                .finally(() => {
+                    closeDownloadModal();
+                });
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                closeDownloadModal();
+            }
+        });
+    </script>
 </body>
 
 </html>
