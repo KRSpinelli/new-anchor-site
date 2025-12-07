@@ -36,6 +36,12 @@
             background-color: #0a0e17;
         }
 
+        .card-image-scaled {
+            height: 100% !important;
+            width: auto !important;
+            object-fit: contain;
+        }
+
         .bg-starfield {
             position: fixed;
             top: 0;
@@ -253,22 +259,27 @@
             <a href="/" class="text-gray-200 hover:text-red-400 transition-colors">← Back to Home</a>
         </div>
 
-        <p class="text-center text-gray-300 text-2xl mt-12">Coming soon</p>
-
-        <!-- Projects Cards
         <div class="space-y-6 max-w-4xl mx-auto">
-            <! Card 1 
-            <div
-                class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row">
-                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop"
-                    alt="Project 1" class="w-full md:w-64 h-48 md:h-auto object-cover">
-                <div class="p-6 flex-1">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-3">AI-Powered Analytics Dashboard</h3>
-                    <p class="text-gray-600">A comprehensive analytics platform that leverages machine learning to
-                        provide real-time insights and predictive analytics for business intelligence.</p>
+            <!-- Card 1 -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row gap-0"
+                style="height: 165px;">
+                <div class="w-auto h-full overflow-hidden relative">
+                    <img src="../parametric-particles.png" alt="Parametric Particles"
+                        class="w-full h-full object-cover object-center card-image-scaled">
+                </div>
+                <div class="p-6 md:pl-2 md:-ml-4 flex-1">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">Parametric Particles</h3>
+                    <p class="text-gray-600 mb-3">A fun animation project that allows you to create beautiful particle
+                        engine
+                        designs using polar equations.</p>
+                    <a href="/projects/parametric-particles/" target="_blank"
+                        class="!text-red-400 hover:!text-red-600 transition-colors" style="color: #f87171 !important;"
+                        onmouseover="this.style.color='#dc2626'" onmouseout="this.style.color='#f87171'">View Project
+                        →</a>
                 </div>
             </div>
-
+        </div>
+        <!--
             <! Card 2 
             <div
                 class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row">
