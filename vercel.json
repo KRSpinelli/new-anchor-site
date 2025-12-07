@@ -6,11 +6,15 @@
     "rewrites": [
         {
             "source": "/projects/parametric-particles",
-            "destination": "https://parametric-particles.vercel.app/projects/parametric-particles"
+            "destination": "https://parametric-particles.vercel.app/"
         },
         {
-            "source": "/projects/parametric-particles/:path*",
-            "destination": "https://parametric-particles.vercel.app/projects/parametric-particles/:path*"
+            "source": "/projects/parametric-particles/",
+            "destination": "https://parametric-particles.vercel.app/"
+        },
+        {
+            "source": "/projects/parametric-particles/assets/:path*",
+            "destination": "https://parametric-particles.vercel.app/assets/:path*"
         }
     ]
 }
