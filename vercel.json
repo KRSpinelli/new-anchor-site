@@ -2,5 +2,15 @@
     "buildCommand": "npm run build",
     "outputDirectory": ".",
     "cleanUrls": true,
-    "trailingSlash": false
+    "trailingSlash": false,
+    "rewrites": [
+        {
+            "source": "/projects/parametric-particles",
+            "destination": "https://parametric-particles.vercel.app/projects/parametric-particles"
+        },
+        {
+            "source": "/projects/parametric-particles/:path*",
+            "destination": "https://parametric-particles.vercel.app/projects/parametric-particles/:path*"
+        }
+    ]
 }
