@@ -21,8 +21,12 @@
             "destination": "https://api.anchorinnovate.com/$1"
         },
         {
-            "source": "/projects/ai-rpg/(.*)",
-            "destination": "https://ai-rpg-blue.vercel.app/$1"
-        }
+      "source": "/projects/ai-rpg/:path*",
+      "destination": "https://YOUR_UI_VERCEL_URL/projects/ai-rpg/:path*"
+    },
+    {
+      "source": "/projects/ai-rpg",
+      "destination": "https://YOUR_UI_VERCEL_URL/projects/ai-rpg"
+    }
     ]
 }
