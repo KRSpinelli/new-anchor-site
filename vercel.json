@@ -15,6 +15,14 @@
         {
             "source": "/projects/parametric-particles/assets/:path*",
             "destination": "https://parametric-particles.vercel.app/assets/:path*"
+        },
+        {
+            "source": "/projects/ai-rpg/api/(.*)",
+            "destination": "https://api.anchorinnovate.com/$1"
+        },
+        {
+            "source": "/projects/ai-rpg/(.*)",
+            "destination": "https://ai-rpg-blue.vercel.app/$1"
         }
     ]
 }
