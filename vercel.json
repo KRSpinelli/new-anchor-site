@@ -1,5 +1,5 @@
 {
-    "buildCommand": "npm run build",
+api.anchorinnovate.com    "buildCommand": "npm run build",
     "outputDirectory": ".",
     "cleanUrls": true,
     "trailingSlash": false,
@@ -22,11 +22,11 @@
         },
         {
       "source": "/projects/ai-rpg/:path*",
-      "destination": "https://YOUR_UI_VERCEL_URL/projects/ai-rpg/:path*"
+      "destination": "https://ai-rpg-blue.vercel.app/projects/ai-rpg/:path*"
     },
     {
       "source": "/projects/ai-rpg",
-      "destination": "https://YOUR_UI_VERCEL_URL/projects/ai-rpg"
+      "destination": "https://ai-rpg-blue.vercel.app/projects/ai-rpg"
     }
     ]
 }
