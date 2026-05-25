@@ -27,18 +27,23 @@
     {
       "source": "/projects/ai-rpg",
       "destination": "https://ai-rpg-blue.vercel.app/projects/ai-rpg"
-    },
-    {
-      "source": "/projects/think-tank",
-      "destination": "https://personality-prod.fly.dev/"
-    },
-    {
-      "source": "/projects/think-tank/",
-      "destination": "https://personality-prod.fly.dev/"
-    },
-    {
-      "source": "/projects/think-tank/:path*",
-      "destination": "https://personality-prod.fly.dev/:path*"
     }
+    ],
+    "redirects": [
+        {
+            "source": "/projects/think-tank",
+            "destination": "https://personality-prod.fly.dev/",
+            "permanent": false
+        },
+        {
+            "source": "/projects/think-tank/",
+            "destination": "https://personality-prod.fly.dev/",
+            "permanent": false
+        },
+        {
+            "source": "/projects/think-tank/:path*",
+            "destination": "https://personality-prod.fly.dev/:path*",
+            "permanent": false
+        }
     ]
 }
