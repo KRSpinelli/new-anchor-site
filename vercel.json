@@ -15,21 +15,24 @@
         {
             "source": "/projects/parametric-particles/assets/:path*",
             "destination": "https://parametric-particles.vercel.app/assets/:path*"
-        },
-        {
-            "source": "/projects/ai-rpg/api/(.*)",
-            "destination": "https://api.anchorinnovate.com/$1"
-        },
-        {
-      "source": "/projects/ai-rpg/:path*",
-      "destination": "https://ai-rpg-blue.vercel.app/projects/ai-rpg/:path*"
-    },
-    {
-      "source": "/projects/ai-rpg",
-      "destination": "https://ai-rpg-blue.vercel.app/projects/ai-rpg"
-    }
+        }
     ],
     "redirects": [
+        {
+            "source": "/projects/ai-rpg",
+            "destination": "https://ai-rpg-staging.fly.dev/",
+            "permanent": false
+        },
+        {
+            "source": "/projects/ai-rpg/",
+            "destination": "https://ai-rpg-staging.fly.dev/",
+            "permanent": false
+        },
+        {
+            "source": "/projects/ai-rpg/:path*",
+            "destination": "https://ai-rpg-staging.fly.dev/:path*",
+            "permanent": false
+        },
         {
             "source": "/projects/think-tank",
             "destination": "https://personality-prod.fly.dev/",
