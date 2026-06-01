@@ -20,17 +20,17 @@
     "redirects": [
         {
             "source": "/projects/ai-rpg",
-            "destination": "https://ai-rpg-staging.fly.dev/",
+            "destination": "https://ai-rpg-prod.fly.dev/",
             "permanent": false
         },
         {
             "source": "/projects/ai-rpg/",
-            "destination": "https://ai-rpg-staging.fly.dev/",
+            "destination": "https://ai-rpg-prod.fly.dev/",
             "permanent": false
         },
         {
             "source": "/projects/ai-rpg/:path*",
-            "destination": "https://ai-rpg-staging.fly.dev/:path*",
+            "destination": "https://ai-rpg-prod.fly.dev/:path*",
             "permanent": false
         },
         {
